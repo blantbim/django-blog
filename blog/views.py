@@ -3,6 +3,19 @@ from django.utils import timezone
 from .models import Post
 from .forms import PostForm
 from django.shortcuts import redirect
+from django.http import HttpResponse
+from django.views.decorators.csrf import csrf_exempt
+
+
+def update_pa(request):
+    if request.method == 'POST':
+        repo = git.Repo()
+        origin = repo.remotes.origin
+        origin.pull()
+
+        return HttpResponse("Updated on PythonAnywhere")
+    else:
+        return HttpResponse ("Couldn't update on PythonAnywhere")
 
 
 def post_list(request):
