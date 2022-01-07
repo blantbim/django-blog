@@ -6,10 +6,10 @@ from django.shortcuts import redirect
 from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 
-
+@csrf_exempt
 def update_pa(request):
     if request.method == 'POST':
-        repo = git.Repo()
+        repo = git.Repo("awolny.pythonanywhere.com")
         origin = repo.remotes.origin
         origin.pull()
 
