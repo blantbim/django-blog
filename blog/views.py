@@ -5,6 +5,18 @@ from .forms import PostForm
 from django.shortcuts import redirect
 from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
+import git
+
+@csrf_exempt
+def update_pa(request):
+    if request.method == 'POST':
+        repo = git.Repo("awolny.pythonanywhere.com")
+        origin = repo.remotes.origin
+        origin.pull()
+
+        return HttpResponse("Updated on PythonAnywhere")
+    else:
+        return HttpResponse ("Couldn't update on PythonAnywhere")
 
 def post_list(request):
     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
@@ -41,13 +53,3 @@ def post_new(request):
         form = PostForm()
     return render(request, 'blog/post_edit.html', {'form': form})
 
-@csrf_exempt
-def update_pa(request):
-    if request.method == 'POST':
-        repo = git.Repo("awolny.pythonanywhere.com")
-        origin = repo.remotes.origin
-        origin.pull()
-
-        return HttpResponse("Updated on PythonAnywhere")
-    else:
-        return HttpResponse ("Couldn't update on PythonAnywhere")
