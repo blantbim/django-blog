@@ -5,6 +5,12 @@
     padding: 20px 20px 20px 40px;
 }
 
+.page-header top-menu,
+.page-header top-menu:hover
+{
+
+}
+
 .page-header h1,
 .page-header h1 a,
 .page-header h1 a:visited,
@@ -12,6 +18,7 @@
     color: #ffffff;
     font-size: 36pt;
     text-decoration: none;
+    font-family: 'Lobster', cursive;
 }
 
 h1,
@@ -29,11 +36,6 @@ h4 {
     float: right;
 }
 
-.post-form textarea,
-.post-form input {
-    width: 100%;
-}
-
 .top-menu,
 .top-menu:hover,
 .top-menu:visited {
@@ -41,9 +43,19 @@ h4 {
     float: right;
     font-size: 26pt;
     margin-right: 20px;
+    font-family: 'Lobster', cursive;
+    text-decoration: none;
+}
+
+.top-menu-center,
+.top-menu-center:hover,
+.top-menu-center:visited {
+    float: right;
+    margin-right: 200px;
 }
 
 .post {
+    margin-top: 40px;
     margin-bottom: 70px;
 }
 
@@ -54,6 +66,7 @@ h4 {
 
 .post > .date,
 .post > .actions {
+    margin-top: 40px;
     float: right;
 }
 
